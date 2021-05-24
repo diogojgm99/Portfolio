@@ -1,9 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head%}
-
+<link rel="stylesheet" href="{% static 'style.css' %}">
 {% endblock%}
 
 {% block content %}
-    <label>Insert all necessary data to contact me</label>
+    <form method='POST'>
+        {% csrf_token %}
+        <div class="form_group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    
+
 {% endblock%}
