@@ -1,0 +1,30 @@
+header {
+    background-color: lightblue;
+    position:fixed;
+    width:100%;
+    z-index:10;
+}
+
+nav {
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+    
+}
+
+nav li {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width:150px;    
+}
+
+nav a {
+    color: black;
+}
+
+body {
+    background-color: snow;
+}
