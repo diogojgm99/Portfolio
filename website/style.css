@@ -46,3 +46,8 @@ footer {
 .academic {
     margin: 10px auto;
 }
+
+.academic li{
+    padding: 10px;
+    font-weight: normal;
+}
