@@ -27,4 +27,22 @@ nav a {
 
 body {
     background-color: snow;
+    text-align: center;
+}
+
+main {
+    position: relative;
+    top: 150px;
+}
+
+footer {
+    position: relative;
+}
+
+.about-me {
+    margin: 10px auto;
+}
+
+.academic {
+    margin: 10px auto;
 }
