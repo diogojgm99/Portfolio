@@ -31,6 +31,8 @@ def gdp_over_years(country,first_year,last_year):
         return False
     plt.plot(years, gdp)
     plt.axis([years[0],years[-1],min(gdp),max(gdp)])
+    plt.xlabel("Years")
+    plt.ylabel("GDP in US Dollars")
     plt.show()
                 
 def gdp_all_years(country):
@@ -52,6 +54,8 @@ def gdp_all_years(country):
         return False
     plt.plot(years, gdp)
     plt.axis([years[0],years[-1],min(gdp),max(gdp)])
+    plt.xlabel("Years")
+    plt.ylabel("GDP in US Dollars")
     plt.show()
     
 def gdp_year(country, year):
@@ -89,13 +93,14 @@ def gdp_two_countries(country1,country2):
     # plt.plot(years2, gdp2)
     # plt.show()
     fig,ax = plt.subplots()
-    ax.plot(years1, gdp1, color="red")
+    l1,= ax.plot(years1, gdp1, color="red", label=country1)
     ax.set_xlabel("year")
     ax.set_ylabel(country1)
 
     ax2=ax.twinx()
-    ax2.plot(years2, gdp2, color="blue")
+    l2,= ax2.plot(years2, gdp2, color="blue", label=country2)
     ax2.set_ylabel(country2)
+    plt.legend([l1,l2],[country1,country2])
     plt.show()
 
 
