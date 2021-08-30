@@ -1,0 +1,21 @@
+###### BANK MANAGEMENT SYSTEM ##########
+
+
+BASE
+
+- Criar uma conta com um numero de identificação (7 digitos), nome do cliente (Primeiro e ultimo), saldo;
+
+
+STEPS
+
+- Criar classe/objetos com as funcoes e variaveis necessárias;(h++ e c++)
+    - ID;
+    - NOME;
+    - SALDO;
+    - create_account();
+    - add_money();
+    - remove_money();
+- Testar com alguns exemplos;
+- Criar menu no terminal com a informação necessária;
+- Criar destructor da classe;
+- Testar novamente;
