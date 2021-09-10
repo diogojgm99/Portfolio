@@ -1,0 +1,17 @@
+header{
+    background-color: aquamarine;
+}
+.main_title{
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.nav-item{
+    color: black;
+    font-size: larger;
+    font-weight: bold ;
+}
+
+.submenu{
+    color: blue;
+}

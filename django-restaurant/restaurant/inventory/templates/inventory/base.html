@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+
+{% block head %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'inventory/style.css' %}"
+    />
+{% endblock %}
+
+<body>
+    <div>
+      <header>
+        <div>
+          <h1 class="main_title" >Django Restaurant</h1>
+        </div>
+        <nav class="navbar">
+          <a class="nav-item" href="{% url 'home' %}">Home</a>
+          <a class="nav-item" href="{% url 'ingredients' %}">Ingredients</a>
+          <a class="nav-item" href="{% url 'menus' %}">Menus</a>
+          <a class="nav-item" href="{% url 'reports' %}">Reports</a>
+          <a class="nav-item" href="{% url 'purchases' %}">Purchases</a>
+        </nav>
+      </header>
+      <main>{% block content %}{% endblock %}</main>
+    </div>
+  </body>
+

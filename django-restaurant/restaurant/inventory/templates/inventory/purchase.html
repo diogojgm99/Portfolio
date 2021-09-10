@@ -1,0 +1,23 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Purchase</h1>
+    <a href="{% url 'add_purchase' %}">Add a New Purchase</a>
+    <table>
+        <tr>
+            <td>Menu Item</td>
+            <td>Price</td>
+            <td>Item</td>
+        </tr>
+        {% for purchase in object_list %}
+            <tr>
+                <td>{{ purchase.menu_item.title }}</td>
+                <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
+                <td>{{purchase.timestamp}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    
+{% endblock %}

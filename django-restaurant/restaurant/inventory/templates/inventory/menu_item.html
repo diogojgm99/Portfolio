@@ -1,0 +1,24 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'create_menu' %}">Add a New Menu</a><br>
+        <a href="{% url 'add_recipe_requirement' %}">Add a New Ingredient to a Existing Menu</a>
+    </div>
+    
+    <h1>Menus</h1>
+    {% for menu_item in object_list %}
+        <li>
+            <div>
+                <div>{{ menu_item.title }}</div>
+                <div>${{ menu_item.price|stringformat:".2f" }}</div>
+            </div>
+            <ul class="menu-item-ingredients">
+                {% for recipe_requirement in menu_item.reciperequirement_set.all %}
+                <li>{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+{% endblock %}
