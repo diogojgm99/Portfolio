@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Sum
 from django.views.generic import TemplateView, ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -64,10 +64,30 @@ class PurchaseView(ListView):
     model = Purchase
     template_name = "inventory/purchase.html"
 
-class CreatePurchaseView(CreateView):
-    model = Purchase
+class CreatePurchaseView(TemplateView):
+    #model = Purchase
     template_name = "inventory/add_purchase.html"
-    form_class = PurchaseForm
+    #form_class = PurchaseForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["menu_items"] = [X for X in MenuItem.objects.all() if X.available()]
+        return context
+
+    def post(self, request):
+        menu_item_id = request.POST["menu_item"]
+        menu_item = MenuItem.objects.get(pk=menu_item_id)
+        requirements = menu_item.reciperequirement_set
+        purchase = Purchase(menu_item=menu_item)
+
+        for requirement in requirements.all():
+            required_ingredient = requirement.ingredient
+            required_ingredient.quantity -= requirement.quantity
+            required_ingredient.save()
+
+        purchase.save()
+        return redirect("/purchases")
+    
 
 class NewRecipeRequirementView(CreateView):
     template_name = "inventory/add_recipe_requirement.html"

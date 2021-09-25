@@ -2,12 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <h1 class="submenu" >Menus</h1>
     <div>
-        <a href="{% url 'create_menu' %}">Add a New Menu</a><br>
-        <a href="{% url 'add_recipe_requirement' %}">Add a New Ingredient to a Existing Menu</a>
+        <a class="link" href="{% url 'create_menu' %}">Add a New Menu</a><br>
+        <a class="link" href="{% url 'add_recipe_requirement' %}">Add a New Ingredient to a Existing Menu</a>
     </div>
-    
-    <h1>Menus</h1>
     {% for menu_item in object_list %}
         <li>
             <div>

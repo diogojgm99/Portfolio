@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-<h2>Ingredients</h2>
-<a href="{% url 'create_ingredient' %}">Add a New Ingredient</a>
+<h1 class="submenu" >Ingredients</h1>
+<a class="link" href="{% url 'create_ingredient' %}">Add a New Ingredient</a>
     <table>
         <tr>
-            <td>Name</td>
-            <td>Quantity</td>
-            <td>Unit</td>
-            <td>Price per unit</td>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price per unit</th>
         </tr>
         {% for ingredient in object_list %}
             <tr>

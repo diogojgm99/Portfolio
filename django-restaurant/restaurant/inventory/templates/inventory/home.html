@@ -19,7 +19,7 @@
                     <td>{{ ingredient.name }}</td>
                     <td>{{ ingredient.quantity }}</td>
                     <td>{{ ingredient.unit }}</td>
-                    <td class="price">${{ ingredient.unit_price|stringformat:".2f" }}</td>
+                    <td>${{ ingredient.unit_price|stringformat:".2f" }}</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -42,18 +42,22 @@
         <hr/>
         <h2 class="submenu">Purchases</h2>
         <table>
-            <tr>
-                <td>Menu Item</td>
-                <td>Price</td>
-                <td>Item</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Menu Item</th>
+                    <th>Price</th>
+                    <th>Item</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for purchase in purchases %}
                 <tr>
                     <td>{{ purchase.menu_item.title }}</td>
-                    <td class="price">${{ purchase.menu_item.price|stringformat:".2f" }}</td>
+                    <td>${{ purchase.menu_item.price|stringformat:".2f" }}</td>
                     <td>{{purchase.timestamp}}</td>
                 </tr>
             {% endfor %}
+            </tbody>
         </table>
         
     </div>

@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block content %}
-    <h1>Purchase</h1>
-    <a href="{% url 'add_purchase' %}">Add a New Purchase</a>
+    <h1 class="submenu">Purchase</h1>
+    <a class="link" href="{% url 'add_purchase' %}">Add a New Purchase</a>
     <table>
         <tr>
-            <td>Menu Item</td>
-            <td>Price</td>
-            <td>Item</td>
+            <th>Menu Item</th>
+            <th>Price</th>
+            <th>Item</th>
         </tr>
         {% for purchase in object_list %}
             <tr>

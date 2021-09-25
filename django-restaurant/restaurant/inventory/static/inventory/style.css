@@ -10,8 +10,18 @@ header{
     color: black;
     font-size: larger;
     font-weight: bold ;
+    padding-right: 5px;
 }
 
 .submenu{
-    color: blue;
+    color: White;
+    background-color: darkgreen;
+    padding: 20px;
+
+}
+
+.link{
+    color: black;
+    font-style: oblique;
+    margin: 50px;   
 }
