@@ -1,0 +1,15 @@
+- MODELS
+    - livro
+        - titulo
+        - autor
+        - tema
+    - cliente
+        - id
+        - nome
+    - reserva
+        - livro
+        - cliente
+        - data de inicio
+        - data final
+        - data de entrega
+        - multa
