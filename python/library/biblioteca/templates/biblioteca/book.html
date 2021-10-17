@@ -1,0 +1,23 @@
+{% extends 'biblioteca/base.html' %}
+
+{% block content %}
+<h1 class="submenu" >Books</h1>
+<a class="link" href="{% url 'new_book' %}">New Book</a>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+        </tr>
+        {% for book in object_list %}
+            <tr>
+                <td>
+                    <a href="{% url "update_book" ingredient.id %}">{{ book.title }}</a>
+                </td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.genre }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+{% endblock %}
