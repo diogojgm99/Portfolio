@@ -1,9 +1,5 @@
 from django.db import models
-
-# Create your models here.
-
-from django.db import models
-
+import  europe.settings as s
 # Create your models here.
 
 class Country(models.Model):
@@ -57,3 +53,22 @@ class GDP_Growth(models.Model):
     class Meta:
         verbose_name = "GDP_Growth"
         verbose_name_plural = "GDP_Growth"
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    group = models.CharField(max_length = 255, choices = s.TAG_GROUPS, default = "Menu")
+
+    def __str__(self):
+        return self.name
+
+class Report(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    display = models.BooleanField(default=True)
+    report = models.ForeignKey(Tag, on_delete= models.CASCADE)
+    menu = models.CharField(max_length = 255, choices = s.MENUS, default = "Economy")
+
+    def __str__(self):
+        return self.name

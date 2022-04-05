@@ -19,8 +19,18 @@ class GDPGrowthAdmin(admin.ModelAdmin):
     list_display = ('country', 'year' , 'gdp_growth')
     list_filter = ('country','year')
 
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_filter = ('name',)
+
+class ReportAdmin(admin.ModelAdmin):
+    list_display = ('name' , 'report')
+    list_filter = ('name',)
+
 # Register your models here.
 admin.site.register(Country, CountryAdmin)
 admin.site.register(GDP, GDPAdmin)
 admin.site.register(GDP_per_capita, GDPCapitaAdmin)
 admin.site.register(GDP_Growth, GDPGrowthAdmin)
+admin.site.register(Tag, TagAdmin)
+admin.site.register(Report, ReportAdmin)
