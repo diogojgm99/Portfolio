@@ -69,6 +69,8 @@ class Report(models.Model):
     display = models.BooleanField(default=True)
     report = models.ForeignKey(Tag, on_delete= models.CASCADE)
     menu = models.CharField(max_length = 255, choices = s.MENUS, default = "Economy")
+    title = models.CharField(max_length=255, default="")
+    type_chart = models.CharField(max_length=255, default="")
 
     def __str__(self):
         return self.name

@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-*jcff0-a+g9-+c@1ln$@^xc7)j3b084#hxufg*en)zoq%z_yz8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG_MODE = False
 
 ALLOWED_HOSTS = []
 
@@ -126,3 +127,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# LOGGING_CONFIG = None
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console_handler': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        # More info on '' (unnamed) loggers at the end of this comment
+        '': {
+            'level': 'INFO',
+            'handlers': ['console_handler'],
+        },
+    },
+
+}
+# import logging.config
+# logging.config.dictConfig(LOGGING)

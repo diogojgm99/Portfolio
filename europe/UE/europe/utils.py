@@ -18,3 +18,7 @@ def get_submenus(menus):
         reports=Report.objects.filter(menu=menu.name).values_list("name", flat=True)
         submenus[menu]=list(reports)
     return submenus
+
+def get_all_countries():
+    countries = list(Country.objects.order_by("name").values_list('name',flat=True))
+    return countries

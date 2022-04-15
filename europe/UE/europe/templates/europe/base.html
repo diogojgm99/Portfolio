@@ -15,19 +15,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font: Source Sans Pro -->
     <!-- <link rel="stylesheet" type="text/css" href="{% static 'inventory/style.css' %}" /> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" type="text/css" href="{% static 'europe/css/all.min.css' %}" />
-    <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
-    <!-- Theme style -->
     <link rel="stylesheet" type="text/css" href="{% static 'europe/css/adminlte.min.css' %}" />
-    <!-- <link rel="stylesheet" href="dist/css/adminlte.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'europe/css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'europe/css/datatables.bootstrap.min.css' %}" />
 
-    <!-- jQuery -->
-    <script src="{% static 'europe/js/jquery.min.js' %}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{% static 'europe/js/bootstrap.bundle.min.js' %}"></script>
-    <!-- AdminLTE App -->
+    <script src="{% static 'europe/js/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'europe/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'europe/js/adminlte.min.js' %}"></script>
+    <script src="{% static 'europe/js/Chart3_7.min.js' %}"></script>
+    <script src="{% static 'europe/js/bootstrap/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'europe/js/jquery/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'europe/js/main.js' %}"></script>
+
+    {% block head_extend %}
+    {% endblock %}
 {% endblock %}
 
 <body class="hold-transition sidebar-mini">
@@ -158,10 +160,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.sidebar -->
   </aside>
+  {% block content %}
+  {% endblock %}
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+
     <!-- /.content-header -->
   </div>
   <!-- /.content-wrapper -->

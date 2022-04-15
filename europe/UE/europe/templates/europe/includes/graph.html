@@ -1,0 +1,20 @@
+<div class="col-md-12 divCharts">
+    <!-- LINE CHART! -->
+    <div class="card card-chart">
+        <div class="card-header ui-sortable-handle">
+            <h3 class="card-title">{{ title }}</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="chart">
+                <canvas id="{{graph_id}}" report="{{report_name}}" type_chart="{{type_chart}}" class="canvasChart" style="height: 250px; width: 510px;" width="510" height="250"></canvas>
+                <div id="legend{{graph_id}}" class="legendChart" ></div>
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+</div>
