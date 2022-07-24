@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +25,7 @@ SECRET_KEY = 'django-insecure-*jcff0-a+g9-+c@1ln$@^xc7)j3b084#hxufg*en)zoq%z_yz8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG_MODE = False
 
 ALLOWED_HOSTS = []
 
@@ -64,6 +66,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'templatetags': 'europe.templatetags.filter',
+            }
         },
     },
 ]
@@ -122,3 +127,38 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# LOGGING_CONFIG = None
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console_handler': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        # More info on '' (unnamed) loggers at the end of this comment
+        '': {
+            'level': 'INFO',
+            'handlers': ['console_handler'],
+        },
+    },
+
+}
+# import logging.config
+# logging.config.dictConfig(LOGGING)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'europe',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+         'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        } 
+    }
+}
