@@ -1,4 +1,4 @@
-from europe.models import Tag, Report, Country, GDP, GDP_per_capita, GDP_Growth
+from europe.models import Tag, Country,Report#, GDP, GDP_per_capita, GDP_Growth
 import europe.settings as s
 import logging
 

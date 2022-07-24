@@ -5,6 +5,7 @@ import pandas as pd
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
+#usd to eur - 0.96040213
 
 def get_years(df):
     years=[]

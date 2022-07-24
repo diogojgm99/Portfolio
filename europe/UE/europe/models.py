@@ -4,8 +4,7 @@ import  europe.settings as s
 
 class Country(models.Model):
     name = models.CharField(max_length=50)
-    sigla = models.CharField(max_length=5, default="")
-    population = models.IntegerField(default=0)
+    code = models.CharField(max_length=5, default="")
     currency = models.CharField(max_length=50,default="Euro")
 
     def __str__(self):
@@ -14,46 +13,6 @@ class Country(models.Model):
     class Meta:
         verbose_name = "Country"
         verbose_name_plural = "Country"
-
-class GDP(models.Model):
-    country = models.ForeignKey(Country,on_delete=models.CASCADE)
-    year = models.IntegerField()
-    gdp = models.IntegerField(default=0)
-
-    def __str__(self):
-        label = "{} - {} - {}".format(self.country, self.year, self.gdp)
-        return label
-
-    class Meta:
-        verbose_name = "GDP"
-        verbose_name_plural = "GDP"
-
-class GDP_per_capita(models.Model):
-    country = models.ForeignKey(Country,on_delete=models.CASCADE)
-    year = models.IntegerField()
-    gdp_per_capita = models.IntegerField(default=0)
-
-    def __str__(self):
-        label = "{} - {} - {}".format(self.country, self.year, self.gdp_per_capita)
-        return label
-    
-    class Meta:
-        verbose_name = "GDP_per_capita"
-        verbose_name_plural = "GDP_per_capita"
-
-class GDP_Growth(models.Model):
-    country = models.ForeignKey(Country,on_delete=models.CASCADE)
-    year = models.IntegerField()
-    gdp_growth = models.FloatField(default=0)
-
-    def __str__(self):
-        label = "{} - {} - {}".format(self.country, self.year, self.gdp_growth)
-        return label
-    
-    class Meta:
-        verbose_name = "GDP_Growth"
-        verbose_name_plural = "GDP_Growth"
-
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
@@ -67,10 +26,15 @@ class Report(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     display = models.BooleanField(default=True)
-    report = models.ForeignKey(Tag, on_delete= models.CASCADE)
-    menu = models.CharField(max_length = 255, choices = s.MENUS, default = "Economy")
+    submenu = models.ForeignKey(Tag, related_name='tag_submenu', limit_choices_to={'group': 'Submenu'}, on_delete= models.CASCADE)
+    menu = models.ForeignKey(Tag, related_name='tag_menu', limit_choices_to={'group': 'Menu'}, on_delete= models.CASCADE)
     title = models.CharField(max_length=255, default="")
-    type_chart = models.CharField(max_length=255, default="")
-
+    
     def __str__(self):
         return self.name
+
+class Data_report(models.Model):
+    country = models.ForeignKey(Country,on_delete=models.CASCADE, related_name='country_data')
+    year = models.IntegerField(default=2000)
+    report = models.ForeignKey(Report, related_name='report', on_delete=models.CASCADE)
+    value = models.FloatField(blank=True, null=True)
